@@ -18,8 +18,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+        'firstname',
+        'lastname',
+        'phone',
+        'phone_verified_at',
         'email',
+        'image',
         'password',
     ];
 
@@ -39,6 +43,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'phone_verified_at' => 'datetime',
     ];
+
+    public function makeStoragePath()
+    {
+        $folder = (round($this->id / 1000) * 1000) + 1;
+        $path = 'images/users/' . $folder . '/';
+
+        return $path;
+    }
 }

@@ -17,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['middleware' => ['auth:api']], function () {
+    Route::group(['prefix' => 'users'], function () {
+        Route::patch('{user}', [\App\Http\Controllers\UserController::class, 'update'])->name('update');
+        Route::post('{user}/image', [\App\Http\Controllers\UserController::class, 'postImage'])->name('postImage');
+    });
+
+});
+
+Route::post('register', [\App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
