@@ -23,6 +23,11 @@ Route::group(['middleware' => ['auth:api']], function () {
         Route::patch('{user}', [\App\Http\Controllers\UserController::class, 'update'])->name('update');
         Route::post('{user}/image', [\App\Http\Controllers\UserController::class, 'postImage'])->name('postImage');
     });
+    Route::group(['prefix' => 'tags'], function () {
+        Route::get('/', [\App\Http\Controllers\TagController::class, 'get'])->name('get');
+        Route::post('/', [\App\Http\Controllers\TagController::class, 'store'])->name('store');
+        Route::patch('{tag}', [\App\Http\Controllers\TagController::class, 'update'])->name('update');
+    });
 
 });
 
