@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -20,11 +21,11 @@ class UserPolicy
     }
 
     public function update(User $user, User $model){
-        return $user->id === $model->id;
+        return $user->id === $model->id || $user->hasRole(Role::ADMIN);
     }
 
     public function image(User $user, User $model)
     {
-        return $user->id === $model->id;
+        return $user->id === $model->id || $user->hasRole(Role::ADMIN);
     }
 }

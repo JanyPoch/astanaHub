@@ -46,6 +46,20 @@ class User extends Authenticatable
         'phone_verified_at' => 'datetime',
     ];
 
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'users_roles');
+    }
+
+    /**
+     * @param string $role
+     * @return bool
+     */
+    public function hasRole(string $role)
+    {
+        return $this->roles()->where('key', $role)->first() ? true: false;
+    }
+
     public function makeStoragePath()
     {
         $folder = (round($this->id / 1000) * 1000) + 1;
