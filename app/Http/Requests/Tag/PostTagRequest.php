@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Tag;
 
 use App\Models\Tag;
 use Illuminate\Foundation\Http\FormRequest;
@@ -27,8 +27,8 @@ class PostTagRequest extends FormRequest
     {
         return [
             'name'   => ['required', 'string', Rule::unique('tags')],
-            'active' => 'sometimes|nullable',
-            'weight' => 'sometimes|nullable'
+            'active' => 'sometimes|nullable|integer',
+            'weight' => 'sometimes|nullable|integer'
         ];
     }
 }

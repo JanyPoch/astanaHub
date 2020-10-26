@@ -4,9 +4,9 @@
 namespace App\Http\Controllers;
 
 
-use App\Http\Requests\PostTagRequest;
+use App\Http\Requests\Tag\PostTagRequest;
 use App\Http\Requests\Tag\TagFilter;
-use App\Http\Requests\UpdateTagRequest;
+use App\Http\Requests\Tag\UpdateTagRequest;
 use App\Http\Resources\Tag\TagResource;
 use App\Models\Tag;
 

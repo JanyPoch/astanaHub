@@ -24,7 +24,7 @@ Route::group(['middleware' => ['auth:api']], function () {
         Route::post('{user}/image', [\App\Http\Controllers\UserController::class, 'postImage'])->name('postImage');
     });
     Route::group(['prefix' => 'tags'], function () {
-        Route::get('/', [\App\Http\Controllers\TagController::class, 'get'])->name('get');
+        Route::get('/', [\App\Http\Controllers\TagController::class, 'index'])->name('index');
         Route::post('/', [\App\Http\Controllers\TagController::class, 'store'])->name('store');
         Route::patch('{tag}', [\App\Http\Controllers\TagController::class, 'update'])->name('update');
     });

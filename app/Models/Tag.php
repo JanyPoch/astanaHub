@@ -20,4 +20,14 @@ class Tag extends  Model
     {
         return $filters->apply($query);
     }
+
+    public function scopeName($query, string $name)
+    {
+        return $query->where('name', $name);
+    }
+
+    public function scopeActive($query, int $active)
+    {
+        return $query->where('active', $active);
+    }
 }
