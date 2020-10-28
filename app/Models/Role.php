@@ -18,12 +18,14 @@ class Role extends Model
     const USER = 'user';
     const STARTUP = 'startup';
     const FOUNDER = 'founder';
+    const INVESTOR = 'investor';
 
     const ROLES = [
         'admin',
         'user',
         'startup',
-        'founder'
+        'founder',
+        'investor'
     ];
 
     public static function getByKey(string $key)
