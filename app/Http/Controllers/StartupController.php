@@ -4,7 +4,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Http\Requests\PostStartupRequest;
+use App\Http\Requests\Startup\PostStartupRequest;
 use App\Http\Resources\Startup\FounderStartupResource;
 use App\Models\Role;
 use App\Models\Startup;

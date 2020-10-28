@@ -19,7 +19,8 @@ class Startup extends Model
         'description',
         'problem_solution',
         'sales_sum',
-        'income'
+        'income',
+        'status'
     ];
 
     const INVESTMENTS = [

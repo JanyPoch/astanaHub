@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Startup;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PostStartupRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class PostStartupRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'             => 'required|string',
+            'name'             => ['required', 'string', Rule::unique('startups')],
             'start_capital'    => 'sometimes|nullable|numeric',
             'investments'      => 'sometimes|nullable|integer',
             'investments_sum'  => 'sometimes|nullable|numeric',
@@ -34,6 +35,7 @@ class PostStartupRequest extends FormRequest
             'problem_solution' => 'required|string',
             'sales_sum'        => 'sometimes|nullable|numeric',
             'income'           => 'sometimes|nullable|numeric',
+            'status'           => 'sometimes|nullable|integer',
             'locales.*'        => 'required|integer',
             'industries.*'     => 'required|integer'
         ];
