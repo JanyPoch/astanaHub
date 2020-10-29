@@ -38,6 +38,8 @@ Route::group(['middleware' => ['auth:api']], function () {
     });
     Route::group(['prefix' => 'pages'], function () {
         Route::post('/', [\App\Http\Controllers\PageController::class, 'store'])->name('store');
+        Route::get('/', [\App\Http\Controllers\PageController::class, 'index'])->name('index');
+        Route::get('{page}', [\App\Http\Controllers\PageController::class, 'show'])->name('show');
     });
     Route::get('cities', [\App\Http\Controllers\CityController::class, 'index']);
     Route::get('countries', [\App\Http\Controllers\CountryController::class, 'index']);
