@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostUserImageRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Http\Resources\User\MyResource;
 use App\Http\Resources\User\UserResource;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,7 @@ class UserController extends Controller
         if (!$user)
             return response()->json(['error' => ''], 401);
 
-        return new UserResource($user);
+        return new MyResource($user);
     }
 
     public function get(User $user)

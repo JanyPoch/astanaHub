@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => ['auth:api']], function () {
+    Route::get('my', [\App\Http\Controllers\UserController::class, 'my'])->name('my');
     Route::group(['prefix' => 'users'], function () {
         Route::patch('{user}', [\App\Http\Controllers\UserController::class, 'update'])->name('update');
         Route::post('{user}/image', [\App\Http\Controllers\UserController::class, 'postImage'])->name('postImage');
