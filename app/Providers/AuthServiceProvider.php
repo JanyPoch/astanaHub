@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
 use App\Models\Page;
 use App\Models\Tag;
 use App\Models\User;
+use App\Policies\CategoryPolicy;
 use App\Policies\PagePolicy;
 use App\Policies\TagPolicy;
 use App\Policies\UserPolicy;
@@ -19,9 +21,10 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        User::class => UserPolicy::class,
-        Tag::class  => TagPolicy::class,
-        Page::class => PagePolicy::class
+        User::class     => UserPolicy::class,
+        Tag::class      => TagPolicy::class,
+        Page::class     => PagePolicy::class,
+        Category::class => CategoryPolicy::class
     ];
 
     /**

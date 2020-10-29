@@ -29,6 +29,10 @@ Route::group(['middleware' => ['auth:api']], function () {
         Route::post('/', [\App\Http\Controllers\TagController::class, 'store'])->name('store');
         Route::patch('{tag}', [\App\Http\Controllers\TagController::class, 'update'])->name('update');
     });
+    Route::group(['prefix' => 'categories'], function () {
+        Route::get('/', [\App\Http\Controllers\CategoryController::class, 'index'])->name('index');
+        Route::post('/', [\App\Http\Controllers\CategoryController::class, 'store'])->name('store');
+    });
     Route::group(['prefix' => 'startups'], function () {
         Route::post('/', [\App\Http\Controllers\StartupController::class, 'store'])->name('store');
     });
