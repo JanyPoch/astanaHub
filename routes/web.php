@@ -13,8 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/lang/{locale}', [\App\Http\Controllers\IndexController::class, 'setLocale'])->name('lang.change');
+
+Route::group(['domain' => '{domain}.' . env('APP_URL_SHORT')], function () {
+    Route::get('/', [\App\Http\Controllers\PageController::class, 'web']);
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/lang/{locale}', [\App\Http\Controllers\IndexController::class, 'setLocale'])->name('lang.change');

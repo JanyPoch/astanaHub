@@ -34,4 +34,13 @@ class PageController extends Controller
 
         return new PageResource($page);
     }
+
+    public function web()
+    {
+        $hostArr = explode('.', request()->getHost());
+        $domainName = array_shift($hostArr);
+        $pages = Page::active(Page::Active)->domain($domainName)->get();
+        dd($pages);
+        //TODO:: return view
+    }
 }

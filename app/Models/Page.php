@@ -24,6 +24,8 @@ class Page extends Model
         'publish_at'
     ];
 
+    const Active = 1;
+
     public function components()
     {
         return $this->hasMany(ContentComponent::class)->orderBy('weight');
@@ -76,7 +78,7 @@ class Page extends Model
         return $query->where('startup_id', $startup);
     }
 
-    public function scopeDomain($query, int $domain)
+    public function scopeDomain($query, string $domain)
     {
         return $query->where('domain', $domain);
     }
