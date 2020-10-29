@@ -15,7 +15,7 @@ class CreateContentComponentsTable extends Migration
     {
         Schema::create('content_components', function (Blueprint $table) {
             $table->id();
-            $table->integer('ui_component_id');
+            $table->integer('ui_component_id')->nullable(); //temporary nullable
             $table->integer('page_id');
             $table->json('body');
             $table->tinyInteger('active')->default(1);

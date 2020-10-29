@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             CitySeeder::class,
             CountrySeeder::class,
             IndustrySeeder::class,
-            LocaleSeeder::class
+            LocaleSeeder::class,
+            CategorySeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
     }

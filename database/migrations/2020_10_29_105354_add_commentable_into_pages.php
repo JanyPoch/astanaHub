@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddStatusIntoStartups extends Migration
+class AddCommentableIntoPages extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddStatusIntoStartups extends Migration
      */
     public function up()
     {
-        Schema::table('startups', function (Blueprint $table) {
-            $table->tinyInteger('status')->after('income')->default(0);
+        Schema::table('pages', function (Blueprint $table) {
+            $table->tinyInteger('commentable')->after('active')->default(0);
         });
     }
 
@@ -25,8 +25,8 @@ class AddStatusIntoStartups extends Migration
      */
     public function down()
     {
-        Schema::table('startups', function (Blueprint $table) {
-            $table->dropColumn('status');
+        Schema::table('pages', function (Blueprint $table) {
+            $table->dropColumn('commentable');
         });
     }
 }

@@ -31,6 +31,9 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::group(['prefix' => 'startups'], function () {
         Route::post('/', [\App\Http\Controllers\StartupController::class, 'store'])->name('store');
     });
+    Route::group(['prefix' => 'pages'], function () {
+        Route::post('/', [\App\Http\Controllers\PageController::class, 'store'])->name('store');
+    });
     Route::get('cities', [\App\Http\Controllers\CityController::class, 'index']);
     Route::get('countries', [\App\Http\Controllers\CountryController::class, 'index']);
     Route::get('industries', [\App\Http\Controllers\IndustryController::class, 'index']);
