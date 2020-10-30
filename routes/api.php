@@ -45,6 +45,11 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::get('countries', [\App\Http\Controllers\CountryController::class, 'index']);
     Route::get('industries', [\App\Http\Controllers\IndustryController::class, 'index']);
 
+    Route::group(['prefix' => 'amo-crm'], function () {
+        Route::get('tasks', [\App\Http\Controllers\AmoController::class, 'getTasks'])->name('getTasks');
+        Route::get('leads', [\App\Http\Controllers\AmoController::class, 'getLeads'])->name('getLeads');
+    });
+
 });
 
 Route::post('register', [\App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
